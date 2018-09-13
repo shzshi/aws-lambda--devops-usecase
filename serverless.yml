@@ -22,7 +22,6 @@ plugins:
   - serverless-dynamodb-local
   - serverless-offline
   - serverless-mocha-plugin
-  - serverless-eslint-plugin
 
 functions:
   create:
