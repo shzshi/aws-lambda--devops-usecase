@@ -11,7 +11,7 @@ pipeline {
         {
             steps {
                 
-                deleteDIR()
+                deleteDir()
                 
                 checkout scm
                 
