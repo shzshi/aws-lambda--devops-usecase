@@ -9,17 +9,19 @@ pipeline {
 
         stage ('Dev init')
         {
-            sh '''
-                nodejs --version
-                npm install serverless-dynamodb-local --save-dev
-                npm install serverless-offline --save-dev
-                npm install serverless-mocha-plugin --save-dev
-                npm install
-                serverless dynamodb install
+            steps {
+                sh '''
+                    nodejs --version
+                    npm install serverless-dynamodb-local --save-dev
+                    npm install serverless-offline --save-dev
+                    npm install serverless-mocha-plugin --save-dev
+                    npm install
+                    serverless dynamodb install
 
-                chmod 755 startOffline.sh
-                chmod 755 stopOffline.sh
-            '''
+                    chmod 755 startOffline.sh
+                    chmod 755 stopOffline.sh
+                '''
+            }
         }
 
         stage ('System Test on Dev') {
