@@ -17,9 +17,10 @@ pipeline {
                 
                 sh '''
                     nodejs --version
-                    npm install serverless-dynamodb-local --save-dev
+                    npm cache clean --force
                     npm install serverless-offline --save-dev
                     npm install serverless-mocha-plugin --save-dev
+                    serverless plugin install -n serverless-dynamodb-local
                     npm install
                 '''
             }
@@ -29,6 +30,7 @@ pipeline {
              
              steps {
                 sh ''' 
+                    sls dynamodb remove
                     serverless dynamodb install
                     chmod 755 startOffline.sh
                     chmod 755 stopOffline.sh
