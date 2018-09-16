@@ -10,6 +10,11 @@ pipeline {
         stage ('Dev init')
         {
             steps {
+                
+                deleteDIR()
+                
+                checkout scm
+                
                 sh '''
                     nodejs --version
                     npm install serverless-dynamodb-local --save-dev
