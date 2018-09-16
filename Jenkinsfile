@@ -54,7 +54,7 @@ pipeline {
              steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'sit-serverless', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     sh ''' 
-                       export TASKS_ENDPOINT=ax1hlqv0vl.execute-api.us-east-1.amazonaws.com/sit
+                       export TASKS_ENDPOINT=https://ax1hlqv0vl.execute-api.us-east-1.amazonaws.com/sit
                        serverless invoke test
                     '''
                 }
@@ -83,7 +83,7 @@ pipeline {
              steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'prod-serverless', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     sh ''' 
-                       export TASKS_ENDPOINT=valdnbrq3a.execute-api.us-east-1.amazonaws.com/prod
+                       export TASKS_ENDPOINT=https://valdnbrq3a.execute-api.us-east-1.amazonaws.com/prod
                        serverless invoke test
                     '''
                 }
