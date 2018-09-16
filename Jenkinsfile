@@ -16,10 +16,6 @@ pipeline {
                     npm install serverless-offline --save-dev
                     npm install serverless-mocha-plugin --save-dev
                     npm install
-                    serverless dynamodb install
-
-                    chmod 755 startOffline.sh
-                    chmod 755 stopOffline.sh
                 '''
             }
         }
@@ -28,6 +24,9 @@ pipeline {
              
              steps {
                 sh ''' 
+                    serverless dynamodb install
+                    chmod 755 startOffline.sh
+                    chmod 755 stopOffline.sh
                     export TASKS_ENDPOINT=http://localhost:3000
                     serverless invoke test
                 '''
