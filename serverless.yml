@@ -90,7 +90,7 @@ custom:
     start:
       migrate: true
   serverless-mocha-plugin:
-    #preTestCommands: 
-    #  - bash startOffline.sh
-    #postTestCommands:
-    #  - bash stopOffline.sh
+    preTestCommands: 
+      - bash startOffline.sh
+    postTestCommands:
+      - bash stopOffline.sh
